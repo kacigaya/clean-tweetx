@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Clean TweetX",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cleans up X (Twitter) by hiding the sidebar, promoted tweets, Grok AI, and premium upsells.",
   "icons": {
     "16": "icons/icon16.png",

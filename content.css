@@ -48,6 +48,7 @@ a[href*="/i/verified-organizations"] {
 
 /* Creator Studio link */
 a[href*="/creator-studio"],
-a[href*="/i/creator-studio"] {
+a[href*="/i/creator-studio"],
+a[href*="/i/jf/creators/studio"] {
     display: none !important;
 }

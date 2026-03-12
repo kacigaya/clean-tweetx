@@ -1,0 +1,50 @@
+/* Clean TweetX — Static element hiding */
+
+/* Right sidebar */
+[data-testid="sidebarColumn"] {
+    display: none !important;
+}
+
+/* Grok nav link */
+a[href*="/i/grok"] {
+    display: none !important;
+}
+
+/* Grok drawer */
+[data-testid="GrokDrawer"],
+[data-testid="GrokDrawerHeader"] {
+    display: none !important;
+}
+
+/* Grok image gen button */
+button[data-testid="grokImgGen"] {
+    display: none !important;
+}
+
+/* Grok action buttons */
+[aria-label="Grok"] {
+    display: none !important;
+}
+
+/* Premium nav links */
+a[href="/i/premium_sign_up"],
+a[aria-label="Premium"],
+a[aria-label="Premium+"] {
+    display: none !important;
+}
+
+/* Premium signup tabs */
+a[data-testid="premium-signup-tab"],
+a[data-testid="premium-business-signup-tab"] {
+    display: none !important;
+}
+
+/* Verified Organizations link */
+a[aria-label="Verified Organizations"] {
+    display: none !important;
+}
+
+/* Creator Studio link */
+a[aria-label="Creator Studio"] {
+    display: none !important;
+}

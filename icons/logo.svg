@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2c7bc5"/>
+      <stop offset="60%" stop-color="#185190"/>
+      <stop offset="100%" stop-color="#0a2a4e"/>
+    </radialGradient>
+
+    <linearGradient id="swooshGrad" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#fdf4d8"/>
+      <stop offset="100%" stop-color="#e8c971"/>
+    </linearGradient>
+
+    <g id="star">
+      <path d="M 0,-15 Q 0,0 15,0 Q 0,0 0,15 Q 0,0 -15,0 Q 0,0 0,-15 Z" fill="#f7d06a"/>
+    </g>
+
+    <g id="hash" stroke="#9bb1c8" stroke-width="2" stroke-linecap="round">
+      <line x1="6" y1="2" x2="6" y2="18" />
+      <line x1="14" y1="2" x2="14" y2="18" />
+      <line x1="2" y1="7" x2="18" y2="7" />
+      <line x1="2" y1="13" x2="18" y2="13" />
+    </g>
+
+    <g id="chat" stroke="#9bb1c8" stroke-width="2" fill="none" stroke-linejoin="round">
+      <path d="M 2 8 C 2 2 18 2 18 8 C 18 14 12 18 6 18 L 2 22 L 4 15 C 2 13 2 10 2 8 Z" />
+    </g>
+  </defs>
+
+  <style>
+    .star-anim {
+      animation: pulse 1.5s infinite alternate ease-in-out;
+    }
+    .icon-float {
+      animation: floatUp 4s infinite linear;
+      transform-origin: center;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(0.8) rotate(0deg); opacity: 0.7; }
+      100% { transform: scale(1.1) rotate(15deg); opacity: 1; }
+    }
+    
+    @keyframes floatUp {
+      0% { transform: translateY(10px) rotate(-5deg); opacity: 0; }
+      20% { opacity: 0.7; }
+      80% { opacity: 0.7; }
+      100% { transform: translateY(-40px) rotate(10deg); opacity: 0; }
+    }
+  </style>
+
+  <circle cx="250" cy="250" r="240" fill="url(#bg)"/>
+
+  <g>
+    <use href="#hash" x="380" y="320" class="icon-float" style="animation-delay: 0s;"/>
+    <use href="#chat" x="420" y="270" class="icon-float" style="animation-delay: 1s;"/>
+    <use href="#hash" x="350" y="390" class="icon-float" style="animation-delay: 2.5s;"/>
+    <use href="#chat" x="390" y="360" class="icon-float" style="animation-delay: 0.5s;"/>
+    <use href="#hash" x="430" y="400" class="icon-float" style="animation-delay: 1.5s;"/>
+    <use href="#chat" x="440" y="320" class="icon-float" style="animation-delay: 3s;"/>
+    <use href="#hash" x="360" y="280" class="icon-float" style="animation-delay: 2s;"/>
+  </g>
+
+  <polygon points="380,130 310,130 120,380 190,380" fill="#ffffff" />
+  
+  <polygon points="120,130 190,130 380,380 310,380" fill="#f4f6f8" />
+  
+  <polygon points="210,250 250,250 190,320 160,320" fill="#d1dae3" opacity="0.6"/>
+
+  <path d="M 120,330 C 120,440 290,400 390,220 C 330,290 220,360 140,310 C 130,300 120,310 120,330 Z" fill="#ffffff"/>
+  
+  <path d="M 100,310 C 100,430 320,400 420,190 C 360,280 230,360 130,300 C 120,295 100,300 100,310 Z" fill="url(#swooshGrad)" opacity="0.9"/>
+
+  <g transform="translate(390, 150) scale(1.8)">
+    <use href="#star" class="star-anim" />
+  </g>
+  <g transform="translate(340, 190) scale(0.9)">
+    <use href="#star" class="star-anim" style="animation-delay: 0.5s;" />
+  </g>
+  <g transform="translate(420, 210) scale(1.2)">
+    <use href="#star" class="star-anim" style="animation-delay: 1.2s;" />
+  </g>
+  <g transform="translate(370, 180) scale(0.5)">
+    <use href="#star" class="star-anim" style="animation-delay: 0.8s;" />
+  </g>
+</svg>

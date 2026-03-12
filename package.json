@@ -4,6 +4,10 @@
   "private": true,
   "packageManager": "bun@1.2.22",
   "scripts": {
-    "test": "bun test"
+    "build": "tsc -p tsconfig.json",
+    "test": "bun run build && bun test"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }

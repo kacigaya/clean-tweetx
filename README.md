@@ -37,5 +37,7 @@ English, French, Spanish, German, Italian, and Portuguese.
 
 ## Development
 
-- Run tests with `bun test`
+- Build the extension script with `bun run build`
+- Run tests with `bun test` or `bun run test`
+- The TypeScript source lives in `src/content.ts` and compiles to `content.js` for the extension manifest
 - The content script includes lightweight Bun-based tests for promoted tweet detection and premium modal filtering

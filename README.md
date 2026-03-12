@@ -21,7 +21,7 @@
 
 ## How it works
 
-Static elements are hidden with CSS injected at `document_start` to prevent any flash of unwanted content. Promoted tweets, which load dynamically as you scroll, are detected and hidden by a lightweight `MutationObserver` that checks for promoted labels (with multilingual support) and SVG icon fingerprints.
+Static elements are hidden with CSS injected at `document_start` to prevent any flash of unwanted content. Promoted tweets, which load dynamically as you scroll, are detected and hidden by a lightweight `MutationObserver` that checks for normalized promoted labels across multiple languages, stable premium-related selectors, and SVG icon fingerprints.
 
 ## Install
 
@@ -33,4 +33,9 @@ Static elements are hidden with CSS injected at `document_start` to prevent any 
 
 ## Supported languages for ad detection
 
-English, French.
+English, French, Spanish, German, Italian, and Portuguese.
+
+## Development
+
+- Run tests with `bun test`
+- The content script includes lightweight Bun-based tests for promoted tweet detection and premium modal filtering

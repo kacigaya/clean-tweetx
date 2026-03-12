@@ -6,7 +6,8 @@
 }
 
 /* Grok nav link */
-a[href*="/i/grok"] {
+a[href*="/i/grok"],
+a[href*="grok.x.com"] {
     display: none !important;
 }
 
@@ -28,8 +29,8 @@ button[data-testid="grokImgGen"] {
 
 /* Premium nav links */
 a[href="/i/premium_sign_up"],
-a[aria-label="Premium"],
-a[aria-label="Premium+"] {
+a[href^="/i/premium_sign_up"],
+a[href*="/i/premium"] {
     display: none !important;
 }
 
@@ -40,11 +41,13 @@ a[data-testid="premium-business-signup-tab"] {
 }
 
 /* Verified Organizations link */
-a[aria-label="Verified Organizations"] {
+a[href*="/i/verified-orgs-signup"],
+a[href*="/i/verified-organizations"] {
     display: none !important;
 }
 
 /* Creator Studio link */
-a[aria-label="Creator Studio"] {
+a[href*="/creator-studio"],
+a[href*="/i/creator-studio"] {
     display: none !important;
 }

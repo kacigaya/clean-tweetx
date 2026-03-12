@@ -1,0 +1,9 @@
+{
+  "name": "clean-tweetx",
+  "version": "1.0.1",
+  "private": true,
+  "packageManager": "bun@1.2.22",
+  "scripts": {
+    "test": "bun test"
+  }
+}

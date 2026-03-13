@@ -1,54 +1,55 @@
 /* Clean TweetX — Static element hiding */
+/* All rules scoped so they deactivate when extension is disabled */
 
 /* Right sidebar */
-[data-testid="sidebarColumn"] {
+html:not(.cleantweetx-disabled) [data-testid="sidebarColumn"] {
     display: none !important;
 }
 
 /* Grok nav link */
-a[href*="/i/grok"],
-a[href*="grok.x.com"] {
+html:not(.cleantweetx-disabled) a[href*="/i/grok"],
+html:not(.cleantweetx-disabled) a[href*="grok.x.com"] {
     display: none !important;
 }
 
 /* Grok drawer */
-[data-testid="GrokDrawer"],
-[data-testid="GrokDrawerHeader"] {
+html:not(.cleantweetx-disabled) [data-testid="GrokDrawer"],
+html:not(.cleantweetx-disabled) [data-testid="GrokDrawerHeader"] {
     display: none !important;
 }
 
 /* Grok image gen button */
-button[data-testid="grokImgGen"] {
+html:not(.cleantweetx-disabled) button[data-testid="grokImgGen"] {
     display: none !important;
 }
 
 /* Grok action buttons */
-[aria-label="Grok"] {
+html:not(.cleantweetx-disabled) [aria-label="Grok"] {
     display: none !important;
 }
 
 /* Premium nav links */
-a[href="/i/premium_sign_up"],
-a[href^="/i/premium_sign_up"],
-a[href*="/i/premium"] {
+html:not(.cleantweetx-disabled) a[href="/i/premium_sign_up"],
+html:not(.cleantweetx-disabled) a[href^="/i/premium_sign_up"],
+html:not(.cleantweetx-disabled) a[href*="/i/premium"] {
     display: none !important;
 }
 
 /* Premium signup tabs */
-a[data-testid="premium-signup-tab"],
-a[data-testid="premium-business-signup-tab"] {
+html:not(.cleantweetx-disabled) a[data-testid="premium-signup-tab"],
+html:not(.cleantweetx-disabled) a[data-testid="premium-business-signup-tab"] {
     display: none !important;
 }
 
 /* Verified Organizations link */
-a[href*="/i/verified-orgs-signup"],
-a[href*="/i/verified-organizations"] {
+html:not(.cleantweetx-disabled) a[href*="/i/verified-orgs-signup"],
+html:not(.cleantweetx-disabled) a[href*="/i/verified-organizations"] {
     display: none !important;
 }
 
 /* Creator Studio link */
-a[href*="/creator-studio"],
-a[href*="/i/creator-studio"],
-a[href*="/i/jf/creators/studio"] {
+html:not(.cleantweetx-disabled) a[href*="/creator-studio"],
+html:not(.cleantweetx-disabled) a[href*="/i/creator-studio"],
+html:not(.cleantweetx-disabled) a[href*="/i/jf/creators/studio"] {
     display: none !important;
 }

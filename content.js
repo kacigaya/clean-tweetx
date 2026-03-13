@@ -205,6 +205,26 @@ function CreateProcessor(doc) {
         RequestFullScan,
     };
 }
+function SetEnabled(doc, enabled) {
+    if (enabled) {
+        doc.documentElement.classList.remove("cleantweetx-disabled");
+    }
+    else {
+        doc.documentElement.classList.add("cleantweetx-disabled");
+    }
+}
+function ShowHiddenElements(doc) {
+    const hidden = doc.querySelectorAll(`[${HIDDEN_ATTR}="1"]`);
+    for (const el of Array.from(hidden)) {
+        el.removeAttribute(HIDDEN_ATTR);
+        if (el instanceof HTMLElement) {
+            el.style.display = "";
+        }
+        else {
+            el.removeAttribute("style");
+        }
+    }
+}
 function Boot(doc) {
     const processor = CreateProcessor(doc);
     const observer = new MutationObserver(processor.HandleMutations);
@@ -234,5 +254,46 @@ if (typeof module !== "undefined") {
     module.exports = api;
 }
 if (typeof document !== "undefined" && typeof MutationObserver !== "undefined") {
-    Boot(document);
+    let instance = null;
+    function Start() {
+        if (instance)
+            return;
+        SetEnabled(document, true);
+        instance = Boot(document);
+    }
+    function Stop() {
+        if (!instance)
+            return;
+        instance.observer.disconnect();
+        instance = null;
+        SetEnabled(document, false);
+        ShowHiddenElements(document);
+    }
+    // Listen for toggle messages from the background script
+    if (typeof chrome !== "undefined" && chrome.runtime?.onMessage) {
+        chrome.runtime.onMessage.addListener((message) => {
+            if (message.type === "cleantweetx-toggle") {
+                if (message.enabled) {
+                    Start();
+                }
+                else {
+                    Stop();
+                }
+            }
+        });
+    }
+    // Check initial state from storage
+    if (typeof chrome !== "undefined" && chrome.storage?.local) {
+        chrome.storage.local.get({ enabled: true }, (result) => {
+            if (result.enabled) {
+                Start();
+            }
+            else {
+                SetEnabled(document, false);
+            }
+        });
+    }
+    else {
+        Start();
+    }
 }

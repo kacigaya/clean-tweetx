@@ -6,6 +6,30 @@ declare const module:
     }
   | undefined;
 
+declare const chrome:
+  | {
+      storage?: {
+        local: {
+          get(
+            defaults: Record<string, unknown>,
+            callback: (result: Record<string, unknown>) => void
+          ): void;
+        };
+      };
+      runtime?: {
+        onMessage: {
+          addListener(
+            callback: (
+              message: { type: string; enabled: boolean },
+              sender: unknown,
+              sendResponse: (response?: unknown) => void
+            ) => void
+          ): void;
+        };
+      };
+    }
+  | undefined;
+
 const PROMOTED_LABELS = [
   "promoted",
   "ad",
@@ -271,6 +295,26 @@ function CreateProcessor(doc: Document) {
   };
 }
 
+function SetEnabled(doc: Document, enabled: boolean): void {
+  if (enabled) {
+    doc.documentElement.classList.remove("cleantweetx-disabled");
+  } else {
+    doc.documentElement.classList.add("cleantweetx-disabled");
+  }
+}
+
+function ShowHiddenElements(doc: Document): void {
+  const hidden = doc.querySelectorAll(`[${HIDDEN_ATTR}="1"]`);
+  for (const el of Array.from(hidden)) {
+    el.removeAttribute(HIDDEN_ATTR);
+    if (el instanceof HTMLElement) {
+      el.style.display = "";
+    } else {
+      el.removeAttribute("style");
+    }
+  }
+}
+
 function Boot(doc: Document): { observer: MutationObserver; processor: Processor } {
   const processor = CreateProcessor(doc);
   const observer = new MutationObserver(processor.HandleMutations);
@@ -306,5 +350,45 @@ if (typeof module !== "undefined") {
 }
 
 if (typeof document !== "undefined" && typeof MutationObserver !== "undefined") {
-  Boot(document);
+  let instance: { observer: MutationObserver; processor: Processor } | null = null;
+
+  function Start(): void {
+    if (instance) return;
+    SetEnabled(document, true);
+    instance = Boot(document);
+  }
+
+  function Stop(): void {
+    if (!instance) return;
+    instance.observer.disconnect();
+    instance = null;
+    SetEnabled(document, false);
+    ShowHiddenElements(document);
+  }
+
+  // Listen for toggle messages from the background script
+  if (typeof chrome !== "undefined" && chrome.runtime?.onMessage) {
+    chrome.runtime.onMessage.addListener((message) => {
+      if (message.type === "cleantweetx-toggle") {
+        if (message.enabled) {
+          Start();
+        } else {
+          Stop();
+        }
+      }
+    });
+  }
+
+  // Check initial state from storage
+  if (typeof chrome !== "undefined" && chrome.storage?.local) {
+    chrome.storage.local.get({ enabled: true }, (result) => {
+      if (result.enabled) {
+        Start();
+      } else {
+        SetEnabled(document, false);
+      }
+    });
+  } else {
+    Start();
+  }
 }

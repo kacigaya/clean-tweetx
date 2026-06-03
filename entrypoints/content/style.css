@@ -1,0 +1,54 @@
+/* Hidden by default; gated by master (.cleantweetx-disabled) + per-feature (.ctx-show-*). */
+
+/* Right sidebar */
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar) [data-testid="sidebarColumn"] {
+    display: none !important;
+}
+
+/* Grok nav link */
+html:not(.cleantweetx-disabled):not(.ctx-show-grok) a[href*="/i/grok"],
+html:not(.cleantweetx-disabled):not(.ctx-show-grok) a[href*="grok.x.com"] {
+    display: none !important;
+}
+
+/* Grok drawer */
+html:not(.cleantweetx-disabled):not(.ctx-show-grok) [data-testid="GrokDrawer"],
+html:not(.cleantweetx-disabled):not(.ctx-show-grok) [data-testid="GrokDrawerHeader"] {
+    display: none !important;
+}
+
+/* Grok image gen button */
+html:not(.cleantweetx-disabled):not(.ctx-show-grok) button[data-testid="grokImgGen"] {
+    display: none !important;
+}
+
+/* Grok action buttons */
+html:not(.cleantweetx-disabled):not(.ctx-show-grok) [aria-label="Grok"] {
+    display: none !important;
+}
+
+/* Premium nav links */
+html:not(.cleantweetx-disabled):not(.ctx-show-premium) a[href="/i/premium_sign_up"],
+html:not(.cleantweetx-disabled):not(.ctx-show-premium) a[href^="/i/premium_sign_up"],
+html:not(.cleantweetx-disabled):not(.ctx-show-premium) a[href*="/i/premium"] {
+    display: none !important;
+}
+
+/* Premium signup tabs */
+html:not(.cleantweetx-disabled):not(.ctx-show-premium) a[data-testid="premium-signup-tab"],
+html:not(.cleantweetx-disabled):not(.ctx-show-premium) a[data-testid="premium-business-signup-tab"] {
+    display: none !important;
+}
+
+/* Verified Organizations link */
+html:not(.cleantweetx-disabled):not(.ctx-show-verified-orgs) a[href*="/i/verified-orgs-signup"],
+html:not(.cleantweetx-disabled):not(.ctx-show-verified-orgs) a[href*="/i/verified-organizations"] {
+    display: none !important;
+}
+
+/* Creator Studio link */
+html:not(.cleantweetx-disabled):not(.ctx-show-creator-studio) a[href*="/creator-studio"],
+html:not(.cleantweetx-disabled):not(.ctx-show-creator-studio) a[href*="/i/creator-studio"],
+html:not(.cleantweetx-disabled):not(.ctx-show-creator-studio) a[href*="/i/jf/creators/studio"] {
+    display: none !important;
+}

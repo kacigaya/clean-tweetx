@@ -1,12 +1,6 @@
 {
+  "extends": "./.wxt/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "none",
-    "lib": ["DOM", "ES2020"],
-    "strict": true,
-    "noEmitOnError": true,
-    "skipLibCheck": true,
-    "outFile": "content.js"
-  },
-  "files": ["src/content.ts"]
+    "jsx": "react-jsx"
+  }
 }

@@ -1,14 +1,22 @@
 <p align="center">
-  <img src="icons/logo.svg" alt="Logo" width="200">
+  <img src="icons/logo.svg" alt="Clean TweetX logo" width="140">
 </p>
 
 <h1 align="center">Clean TweetX</h1>
 
 <p align="center">
-   <strong>A minimal Chrome extension that hides distracting and promotional UI in X/Twitter.</strong><br>
-   <em>Works out of the box, with popup controls when you want them.</em>
+  <strong>A minimal Chrome extension that hides distracting and promotional UI in X/Twitter.</strong><br>
+  <em>Works out of the box, with popup controls when you want them.</em>
 </p>
- 
+
+<p align="center">
+  <a href="https://wxt.dev"><img alt="WXT 0.20" src="https://shieldcn.dev/badge/WXT-0.20-67d55f.svg?variant=secondary"></a>
+  <a href="https://react.dev"><img alt="React 19" src="https://shieldcn.dev/badge/React-19-149eca.svg?variant=secondary&amp;logo=react"></a>
+  <a href="https://bun.sh"><img alt="Bun 1.2" src="https://shieldcn.dev/badge/Bun-1.2-fbf0df.svg?variant=secondary&amp;logo=bun&amp;logoColor=171717"></a>
+  <a href="https://base-ui.com"><img alt="Base UI 1.0" src="https://shieldcn.dev/badge/Base_UI-1.0-171717.svg?variant=secondary"></a>
+  <a href="https://developer.chrome.com/docs/extensions/mv3/intro"><img alt="Chrome MV3" src="https://shieldcn.dev/badge/Chrome-MV3-4285f4.svg?variant=secondary&amp;logo=googlechrome"></a>
+  <a href="https://github.com/kacigaya/clean-tweetx/blob/main/LICENSE"><img alt="MIT License" src="https://shieldcn.dev/github/license/kacigaya/clean-tweetx.svg?variant=secondary"></a>
+</p>
 
 ## What it hides
 

@@ -19,6 +19,12 @@ html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-time
     margin-left: 0 !important;
 }
 
+/* X sizes the Poster button to ~90% of the nav; fill it so it lines up with the left-pinned nav. */
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) header[role="banner"] div:has(> [data-testid="SideNav_NewTweet_Button"]),
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="SideNav_NewTweet_Button"] {
+    width: 100% !important;
+}
+
 html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) main[role="main"] > div {
     width: 100% !important;
 }
@@ -26,6 +32,12 @@ html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-time
 html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="primaryColumn"],
 html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="primaryColumn"] div:has(> section[role="region"]) {
     max-width: none !important;
+}
+
+/* Photos, landscape videos, and link cards scale with width; X only caps media height,
+   so keep them near X's native size while text uses the full width. */
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="tweet"] div[aria-labelledby]:has([data-testid="tweetPhoto"], [data-testid="card.wrapper"]) {
+    max-width: 600px !important;
 }
 
 /* Grok nav link */

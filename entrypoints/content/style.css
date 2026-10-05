@@ -5,9 +5,26 @@ html:not(.cleantweetx-disabled):not(.ctx-show-sidebar) [data-testid="sidebarColu
     display: none !important;
 }
 
-/* Wide timeline: lift X's 600px column cap so posts fill the row the hidden sidebar left.
-   Needs the sidebar hidden too, otherwise the column would squeeze it. */
-html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="primaryColumn"] {
+/* Wide timeline: pin the nav left and let posts fill the rest of the viewport.
+   Needs the sidebar hidden too, otherwise the column would squeeze it.
+   X's layout: header and main split spare width evenly, the header right-aligns the nav,
+   main's row is fixed at ~1050px, and both the column and the timeline inside it cap at 600px.
+   Action bars keep their own 600px cap on purpose. */
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) header[role="banner"] {
+    flex-grow: 0 !important;
+    align-items: flex-start !important;
+}
+
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) header[role="banner"] > div {
+    margin-left: 0 !important;
+}
+
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) main[role="main"] > div {
+    width: 100% !important;
+}
+
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="primaryColumn"],
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="primaryColumn"] div:has(> section[role="region"]) {
     max-width: none !important;
 }
 

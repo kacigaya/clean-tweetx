@@ -27,7 +27,7 @@ export const FEATURES: FeatureDescriptor[] = [
   {
     key: 'wideTimeline',
     label: 'Wide timeline',
-    description: 'Posts fill the space left by the hidden sidebar',
+    description: 'Nav pinned left, posts fill the rest',
   },
   {
     key: 'promoted',

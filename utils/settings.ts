@@ -3,6 +3,7 @@ import { storage } from '#imports';
 
 export type FeatureKey =
   | 'sidebar'
+  | 'wideTimeline'
   | 'promoted'
   | 'grok'
   | 'premium'
@@ -22,6 +23,11 @@ export const FEATURES: FeatureDescriptor[] = [
     key: 'sidebar',
     label: 'Right sidebar',
     description: 'Trending, who to follow, promotions',
+  },
+  {
+    key: 'wideTimeline',
+    label: 'Wide timeline',
+    description: 'Posts fill the space left by the hidden sidebar',
   },
   {
     key: 'promoted',
@@ -53,6 +59,7 @@ export const FEATURES: FeatureDescriptor[] = [
 // Class added to <html> when a feature is OFF (opt-out). Static CSS hides by default.
 export const SHOW_CLASS: Record<FeatureKey, string> = {
   sidebar: 'ctx-show-sidebar',
+  wideTimeline: 'ctx-show-narrow-timeline',
   promoted: 'ctx-show-promoted',
   grok: 'ctx-show-grok',
   premium: 'ctx-show-premium',
@@ -72,6 +79,7 @@ type Item = ReturnType<typeof flag>;
 export const settings: Record<SettingKey, Item> = {
   enabled: flag('enabled'),
   sidebar: flag('sidebar'),
+  wideTimeline: flag('wideTimeline'),
   promoted: flag('promoted'),
   grok: flag('grok'),
   premium: flag('premium'),

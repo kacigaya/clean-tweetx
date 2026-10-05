@@ -21,6 +21,7 @@
 ## What it hides
 
 - Right sidebar (trending topics, who to follow, promotions)
+- Narrow timeline: posts widen into the space the hidden sidebar leaves
 - Promoted/ad tweets as you scroll the timeline
 - Grok AI features (nav link, drawer, image gen button, action buttons)
 - Premium upsells (signup links, tabs, subscription modals)

@@ -5,6 +5,12 @@ html:not(.cleantweetx-disabled):not(.ctx-show-sidebar) [data-testid="sidebarColu
     display: none !important;
 }
 
+/* Wide timeline: lift X's 600px column cap so posts fill the row the hidden sidebar left.
+   Needs the sidebar hidden too, otherwise the column would squeeze it. */
+html:not(.cleantweetx-disabled):not(.ctx-show-sidebar):not(.ctx-show-narrow-timeline) [data-testid="primaryColumn"] {
+    max-width: none !important;
+}
+
 /* Grok nav link */
 html:not(.cleantweetx-disabled):not(.ctx-show-grok) a[href*="/i/grok"],
 html:not(.cleantweetx-disabled):not(.ctx-show-grok) a[href*="grok.x.com"] {

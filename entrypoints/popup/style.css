@@ -1,10 +1,31 @@
+/* Neutral surfaces + one brand accent from the logo blue (sky-700 light, sky-400 dark). */
 :root {
-  --bg: #15202b;
-  --bg-elev: #1c2732;
-  --border: #2f3b47;
-  --text: #e7e9ea;
-  --text-dim: #8b98a5;
-  --accent: #1d9bf0;
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --border: #e5e5e5;
+  --text: #0a0a0a;
+  --text-dim: #525252;
+  --brand: #0369a1;
+  --ring: var(--brand);
+  /* Off-state track: ≥3:1 against --bg in both themes. */
+  --track: #737373;
+
+  --pad-x: 16px;
+  --text-md: 15px;
+  --text-sm: 13px;
+  --text-xs: 11px;
+  --duration: 120ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --border: #262626;
+    --text: #fafafa;
+    --text-dim: #a3a3a3;
+    --brand: #38bdf8;
+  }
 }
 
 * {
@@ -37,15 +58,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 16px;
+  padding: 14px var(--pad-x);
   border-bottom: 1px solid var(--border);
 }
 
 .header h1 {
   margin: 0;
-  font-size: 15px;
+  font-size: var(--text-md);
   font-weight: 700;
-  letter-spacing: 0.2px;
+  letter-spacing: -0.01em;
 }
 
 .rows {
@@ -54,6 +75,7 @@ body {
   padding: 4px 0;
 }
 
+/* Master switch off: dim the whole list once; switches inside are not dimmed again. */
 .rows[data-off] {
   opacity: 0.5;
 }
@@ -63,7 +85,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 16px;
+  padding: 10px var(--pad-x);
   cursor: pointer;
 }
 
@@ -79,23 +101,23 @@ body {
 }
 
 .row-label {
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 500;
 }
 
 .row-desc {
-  font-size: 11px;
+  font-size: var(--text-xs);
   color: var(--text-dim);
 }
 
 .footer {
-  padding: 10px 16px;
+  padding: 10px var(--pad-x);
   border-top: 1px solid var(--border);
-  font-size: 11px;
+  font-size: var(--text-xs);
   color: var(--text-dim);
 }
 
-/* Base UI Switch (unstyled) */
+/* Base UI Switch (unstyled). Thumb uses --bg so it contrasts with both track colors. */
 .switch {
   position: relative;
   flex: none;
@@ -104,18 +126,22 @@ body {
   padding: 0;
   border: none;
   border-radius: 999px;
-  background: var(--border);
+  background: var(--track);
   cursor: pointer;
-  transition: background 120ms ease;
+  transition: background-color var(--duration) ease;
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 .switch[data-checked] {
-  background: var(--accent);
+  background: var(--brand);
 }
 
 .switch[data-disabled] {
   cursor: default;
-  opacity: 0.6;
 }
 
 .switch-thumb {
@@ -124,10 +150,17 @@ body {
   height: 18px;
   margin: 2px;
   border-radius: 50%;
-  background: #fff;
-  transition: transform 120ms ease;
+  background: var(--bg);
+  transition: transform var(--duration) ease;
 }
 
 .switch[data-checked] .switch-thumb {
   transform: translateX(16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .switch,
+  .switch-thumb {
+    transition: none;
+  }
 }

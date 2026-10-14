@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { Switch } from '@base-ui-components/react/switch';
 import { settings, FEATURES, type SettingKey } from '@/utils/settings';
 
@@ -39,14 +39,23 @@ function Row({
   disabled?: boolean;
   onChange: (next: boolean) => void;
 }) {
+  const id = useId();
+  // The <label> keeps the whole row clickable; explicit ids keep the switch's
+  // accessible name to the label and expose the description separately.
   return (
     <label className="row" data-disabled={disabled ? '' : undefined}>
       <span className="row-text">
-        <span className="row-label">{label}</span>
-        <span className="row-desc">{description}</span>
+        <span className="row-label" id={`${id}-label`}>
+          {label}
+        </span>
+        <span className="row-desc" id={`${id}-desc`}>
+          {description}
+        </span>
       </span>
       <Switch.Root
         className="switch"
+        aria-labelledby={`${id}-label`}
+        aria-describedby={`${id}-desc`}
         checked={checked}
         disabled={disabled}
         onCheckedChange={onChange}

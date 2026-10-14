@@ -28,6 +28,13 @@
 - Creator Studio nav link
 - Verified Organizations nav link
 
+## Popup
+
+<p align="center">
+  <img src="docs/popup-light.png" alt="Clean TweetX popup in light mode: master switch on, every category hidden except the right sidebar" width="300">
+  <img src="docs/popup-dark.png" alt="Clean TweetX popup in dark mode with the same settings" width="300">
+</p>
+
 ## How it works
 
 Static elements are hidden with CSS injected at `document_start` to prevent any flash of unwanted content. Each rule is gated by a per-feature class so toggling a feature off in the popup re-shows only that category. Promoted tweets and premium modals, which load dynamically as you scroll, are detected and hidden by a lightweight `MutationObserver` that checks for normalized promoted labels across multiple languages, stable premium-related selectors, and SVG icon fingerprints.
